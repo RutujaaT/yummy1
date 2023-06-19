@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="https://fonts.googleapis.com/css?family=Lato:400,700|Montserrat:400,700" rel="stylesheet">
+    <link rel="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            position: relative;
+        }
+        .nav-item::after{
+            content:'';display:block;width:0px;height:2px;background:red;transition: 0.2s;
+        }
+        .nav-item:hover::after{
+            width:100%;
+        }
+        .btn1 {
+            border-radius: 30px;
+            background-color: rgb(247, 163, 163);
+            color: white;
+        }
+        .btn1:hover {
+            background-color: white;
+            color: red;
+        }
+        
+        /* Stat counter */
+
+        .count-area {
+            position: relative;
+            background:  linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(Images/pexels-jane-doan-1092730.jpg);
+            background-size: cover;
+            padding: 100px 0;
+            text-align: center;
+            color: #fff;
+            background-attachment: fixed;
+        }
+        .count-area-content {
+            margin-top: 30px;
+        }
+        .count-area i {
+            font-size: 48px;
+        }
+        .count-digit {
+            margin: 20px 0px;
+            color: #fff;
+            font-weight: 700;
+            font-size: 50px;
+        }
+        .count-title {
+            font-size: 20px;
+        }
+
+        /* Carousel */
+
+        @media (max-width: 767px) {
+    		.carousel-inner .carousel-item > div {
+		    display: none;
+		}
+		    .carousel-inner .carousel-item > div:first-child {
+			display: block;
+		    }
+	    }
+
+	    .carousel-inner .carousel-item.active,
+	    .carousel-inner .carousel-item-next,
+	    .carousel-inner .carousel-item-prev {
+    		display: flex;
+    	}
+
+    	/* medium and up screens */
+    	@media (min-width: 768px) {
+            .carousel-inner .carousel-item-end.active,
+		    .carousel-inner .carousel-item-next {
+			transform: translateX(25%);
+		    }
+
+		    .carousel-inner .carousel-item-start.active, 
+		    .carousel-inner .carousel-item-prev {
+			transform: translateX(-25%);
+		    }
+	    }
+
+	    .carousel-inner .carousel-item-end,
+	    .carousel-inner .carousel-item-start { 
+	    	transform: translateX(0);
+    	}
+
+        
+
+    </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="50">
+        <div class="container pb-5">
+            <nav class="navbar navbar-expand-md justify-content-between">
+                <a href="#" class="navbar-brand"><h1>Yummy<span class="text-danger">.</span></h1></a>
+                <button class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#offCanvas" type="button">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="offcanvas offcanvas-start" id="offCanvas">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="#home" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#aboutUs" class="nav-link">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#menu" class="nav-link">Menu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Event</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Chefs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#gallery" class="nav-link">Gallery</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Dropdown</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" class="dropdown-item">Link a</a></li>
+                                <li><a href="#" class="dropdown-item">Link b</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Book a table - button -->
+
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#myModal">Book a table</button>
+
+                <!-- The modal -->
+
+                <div class="modal fade" id="myModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+
+                        <!-- Modal Header -->
+                            <div class="modal-header">
+                                <h4 class="modal-title">Book a table!</h4>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                               <form>
+                                <input type="text" class="form-control mb-2" placeholder="Enter fullname">
+                                <input type="email" class="form-control mb-2" placeholder="Enter email">
+                                <input type="text" class="form-control mb-2" placeholder="Enter no. of people">
+                                <input type="text" class="form-control mb-2" placeholder="Enter contact number">
+
+                               </form>
+                            </div>
+
+                        <!-- Modal footer -->
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger">Submit</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </nav>
+        </div>
+        <!-- Cover Page -->
+        
+        <div id="home" class="container-fluid" style="background-color: #EEEEEE;">
+            <div class="row justify-content-between align-items-center" style="margin: -48px -12px 0px;">
+                <div data-aos="fade-up" class="col-lg-5 order-2 order-lg-1 d-flex flex-column justify-content-center align-items-center align-items-lg-start text-center text-lg-start " style="margin: 48px 0px 0px;">
+                    <h2 style="font-family: 'Amatic SC', cursive; font-size: 64px;">ENJOY YOUR HEALTHY <br/> DELICIOUS FOOD.</h2>
+                    <p style="font-family: sans-serif;">Sed autem laudantium dolores. Voluptatem itaque ea consequatur <br/> eveniet. Eum quas beatae cumque eum quaerat.</p>
+                </div>
+                <div class="col-lg-5 order-1 order-lg-2 align-items-center justify-content-center">
+                    <img src="Images/pexels-ella-olsson-1640772.jpg" class="img-fluid p-3">
+                </div>
+            </div>
+        </div>
+
+        <!-- About Us  -->
+        <div data-aos="fade-up" id="aboutUs" class="container" style="padding: 80px 0px;">
+            <h2 style="font-family: 'sans-serif'; font-size: 13px; color: #7F7F90;" class="text-center">ABOUT US</h2>
+            <p class="text-center" style="font-size: 48px; font-family: 'Amatic SC', cursive;">LEARN MORE <span class="text-danger">ABOUT US</span></p>
+            <div data-aos="fade-up" data-aos-delay="300" class="row">
+                <div class="col-lg-7">
+                    <img src="Images/pexels-igor-starkov-1307698.jpg" class="img-fluid">
+                </div>
+                <div data-aos="fade-up" class="col-lg-5">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <ul style="list-style-type: circle;">
+                        <li>Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                        <li>Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                        <li>Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                    </ul>
+                    <div class="position-relative mt-4">
+                        <img src="Images/pexels-igor-starkov-1055054.jpg" class="img-fluid" height="300px">
+                    </div> 
+                </div>
+            </div>
+        </div>  
+
+        <!-- WHY CHOOSE YUMMY   -->
+        <div class="container-fluid p-5" style="background-color: #EEEEEE;">
+            <div class="row gy-4">
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="why-box text-bg-danger" style="padding: 20px;">
+                        <h2>Why Choose Yummy?</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit Asperiores dolores sed et. Tenetur quia eos. Autem tempore quibusdam vel necessitatibus optio ad corporis</p>
+                        <button type="button" class="btn btn1">Learn More</button>
+                    </div>
+                </div> 
+                
+                <div class="col-lg-8 d-flex align-items-center">
+                    <div class="row g-4">
+                        <div class="col-lg-4 text-center bg-white" data-aos="fade-up" data-aos-delay="200">
+                            <div class="icon-box d-flex flex-column justify-content-center align-items-center" style="padding: 40px 30px;">
+                                <span class="material-symbols-outlined" style="margin:0px 0px 30px">badge</span>
+                                <h2 style="margin:0px 0px 30px">Corporis voluptates officia eiusmod</h2>
+                                <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 text-center bg-white" data-aos="fade-up" data-aos-delay="200">
+                            <div class="icon-box d-flex flex-column justify-content-center align-items-center" style="padding: 40px 30px;">
+                                <span class="material-symbols-outlined" style="margin:0px 0px 30px">badge</span>
+                                <h2 style="margin:0px 0px 30px">Corporis voluptates officia eiusmod</h2>
+                                <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
+                            </div>
+                        </div>
+                    
+                        <div class="col-lg-4 text-center bg-white" data-aos="fade-up" data-aos-delay="200">
+                            <div class="icon-box d-flex flex-column justify-content-center align-items-center" style="padding: 40px 30px;">
+                                <span class="material-symbols-outlined" style="margin:0px 0px 30px">badge</span>
+                                <h2 style="margin:0px 0px 30px">Labore consequatur incidid dolore</h2>
+                                <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+
+         <!--  Stats counter -->
+
+        <div class="count-area" data-diff="100">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-md-3">
+                <div class="count-area-content">
+                   
+                    <div class="count-digit">232</div>
+                    <div class="count-title">Clients</div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="count-area-content">
+                    
+                    <div class="count-digit">521</div>
+                    <div class="count-title">Projects</div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="count-area-content">
+                    
+                    <div class="count-digit">1453</div>
+                    <div class="count-title">Hours of Support </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="count-area-content">
+                    
+                    <div class="count-digit">32</div>
+                    <div class="count-title">Workers</div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+
+
+
+        
+    
+        <!-- MENU -->
+        <div class="container p-5" data-aos="fade-up" id="menu">
+            <h2 style="font-family: 'sans-serif'; font-size: 13px; color: #7F7F90;" class="text-center">OUR MENU</h2>
+            <p style="font-family: 'Amatic SC', cursive;font-size: 48px" class="text-center">CHECK OUR <span class="text-danger">YUMMY MENU</span> </p>
+            <ul class="nav tabs d-flex justify-content-center" role="tablist">
+                <li class="nav-item" style="color: black">
+                    <a class="nav-link show active" data-bs-toggle="tab" href="#starters">
+                        <h4>Starters</h4>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="tab" href="#breakfast">
+                        <h4>Breakfast</h4>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="tab" href="#lunch">
+                        <h4>Lunch</h4>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="tab" href="#dinner">
+                        <h4>Dinner</h4>
+                    </a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane fade active show" id="starters" role="tabpanel">
+                    <div class="tab-header text-center">
+                        <p style="font-family: 'sans-serif'; font-size: 13px; color: #7F7F90;">MENU</p>
+                        <h3 class="text-danger" style="font-size:30px;">Starters</h3>
+                    </div>
+                    <div class="row g-4">
+                        <div class="col-md-6 col-lg-4 text-center">
+                            <img src="Images/pexels-sunsetoned-10026524.jpg" class="img-fluid">
+                            <h4>Magnam Tiste</h4>
+                            <p class="ingredients">Lorem, deren, trataro, filede, nerada</p>
+                            <p class="price text-danger">$5.95</p>
+                        </div>
+                        <div class="col-md-6 col-lg-4 text-center">
+                            <img src="Images/pexels-jane-doan-909908.jpg" class="img-fluid">
+                            <h4>Magnam Tiste</h4>
+                            <p class="ingredients">Lorem, deren, trataro, filede, nerada</p>
+                            <p class="price text-danger">$5.95</p>
+                        </div>
+                        <div class="col-md-6 col-lg-4 text-center">
+                            <img src="Images/pexels-jill-burrow-6858632.jpg" class="img-fluid">
+                            <h4>Magnam Tiste</h4>
+                            <p class="ingredients">Lorem, deren, trataro, filede, nerada</p>
+                            <p class="price text-danger">$5.95</p>
+                        </div>
+                     
+                    
+                        <div class="col-md-6 col-lg-4 text-center">
+                            <img src="Images/pexels-cook-eat-776859.jpg" class="img-fluid">
+                            <h4>Magnam Tiste</h4>
+                            <p class="ingredients">Lorem, deren, trataro, filede, nerada</p>
+                            <p class="price text-danger">$5.95</p>
+                        </div>
+                        <div class="col-md-6 col-lg-4 text-center">
+                            <img src="Images/pexels-кристина-александрова-3750709.jpg" class="img-fluid">
+                            <h4>Magnam Tiste</h4>
+                            <p class="ingredients">Lorem, deren, trataro, filede, nerada</p>
+                            <p class="price text-danger">$5.95</p>
+                        </div>
+                        <div class="col-md-6 col-lg-4 text-center">
+                            <img src="Images/pexels-any-lane-5945565.jpg" class="img-fluid">
+                            <h4>Magnam Tiste</h4>
+                            <p class="ingredients">Lorem, deren, trataro, filede, nerada</p>
+                            <p class="price text-danger">$5.95</p>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="tab-pane fade" id="breakfast" role="tabpanel">
+                    <div class="tab-header text-center">
+                        <p style="font-family: 'sans-serif'; font-size: 13px; color: #7F7F90;">MENU</p>
+                        <h3 class="text-danger" style="font-size:30px;">Breakfast</h3>
+                    </div>
+                    <div class="row g-4">
+                        <div class="col-md-6 col-lg-4 text-center">
+                            <img src="Images/pexels-sunsetoned-10026524.jpg" class="img-fluid">
+                            <h4>Magnam Tiste</h4>
+                            <p class="ingredients">Lorem, deren, trataro, filede, nerada</p>
+                            <p class="price text-danger">$5.95</p>
+                        </div>
+                        <div class="col-md-6 col-lg-4 text-center">
+                            <img src="Images/pexels-jane-doan-909908.jpg" class="img-fluid">
+                            <h4>Magnam Tiste</h4>
+                            <p class="ingredients">Lorem, deren, trataro, filede, nerada</p>
+                            <p class="price text-danger">$5.95</p>
+                        </div>
+                        <div class="col-md-6 col-lg-4 text-center">
+                            <img src="Images/pexels-jill-burrow-6858632.jpg" class="img-fluid">
+                            <h4>Magnam Tiste</h4>
+                            <p class="ingredients">Lorem, deren, trataro, filede, nerada</p>
+                            <p class="price text-danger">$5.95</p>
+                        </div>
+                                 
+                        <div class="col-md-6 col-lg-4 text-center">
+                            <img src="Images/pexels-cook-eat-776859.jpg" class="img-fluid">
+                            <h4>Magnam Tiste</h4>
+                            <p class="ingredients">Lorem, deren, trataro, filede, nerada</p>
+                            <p class="price text-danger">$5.95</p>
+                        </div>
+                        <div class="col-md-6 col-lg-4 text-center">
+                            <img src="Images/pexels-кристина-александрова-3750709.jpg" class="img-fluid">
+                            <h4>Magnam Tiste</h4>
+                            <p class="ingredients">Lorem, deren, trataro, filede, nerada</p>
+                            <p class="price text-danger">$5.95</p>
+                        </div>
+                        <div class="col-md-6 col-lg-4 text-center">
+                            <img src="Images/pexels-any-lane-5945565.jpg" class="img-fluid">
+                            <h4>Magnam Tiste</h4>
+                            <p class="ingredients">Lorem, deren, trataro, filede, nerada</p>
+                            <p class="price text-danger">$5.95</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="lunch" role="tabpanel">
+                    <div class="tab-header text-center">
+                        <p style="font-family: 'sans-serif'; font-size: 13px; color: #7F7F90;">MENU</p>
+                        <h3 class="text-danger" style="font-size:30px;">Lunch</h3>
+                    </div>
+                    <div class="row g-4">
+                        <div class="col-md-6 col-lg-4 text-center">
+                            <img src="Images/pexels-sunsetoned-10026524.jpg" class="img-fluid">
+                            <h4>Magnam Tiste</h4>
+                            <p class="ingredients">Lorem, deren, trataro, filede, nerada</p>
+                            <p class="price text-danger">$5.95</p>
+                        </div>
+                        <div class="col-md-6 col-lg-4 text-center">
+                            <img src="Images/pexels-jane-doan-909908.jpg" class="img-fluid">
+                            <h4>Magnam Tiste</h4>
+                            <p class="ingredients">Lorem, deren, trataro, filede, nerada</p>
+                            <p class="price text-danger">$5.95</p>
+                        </div>
+                        <div class="col-md-6 col-lg-4 text-center">
+                            <img src="Images/pexels-jill-burrow-6858632.jpg" class="img-fluid">
+                            <h4>Magnam Tiste</h4>
+                            <p class="ingredients">Lorem, deren, trataro, filede, nerada</p>
+                            <p class="price text-danger">$5.95</p>
+                        </div>
+                                 
+                        <div class="col-md-6 col-lg-4 text-center">
+                            <img src="Images/pexels-cook-eat-776859.jpg" class="img-fluid">
+                            <h4>Magnam Tiste</h4>
+                            <p class="ingredients">Lorem, deren, trataro, filede, nerada</p>
+                            <p class="price text-danger">$5.95</p>
+                        </div>
+                        <div class="col-md-6 col-lg-4 text-center">
+                            <img src="Images/pexels-кристина-александрова-3750709.jpg" class="img-fluid">
+                            <h4>Magnam Tiste</h4>
+                            <p class="ingredients">Lorem, deren, trataro, filede, nerada</p>
+                            <p class="price text-danger">$5.95</p>
+                        </div>
+                        <div class="col-md-6 col-lg-4 text-center">
+                            <img src="Images/pexels-any-lane-5945565.jpg" class="img-fluid">
+                            <h4>Magnam Tiste</h4>
+                            <p class="ingredients">Lorem, deren, trataro, filede, nerada</p>
+                            <p class="price text-danger">$5.95</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="dinner" role="tabpanel">
+                    <div class="tab-header text-center">
+                        <p style="font-family: 'sans-serif'; font-size: 13px; color: #7F7F90;">MENU</p>
+                        <h3 class="text-danger" style="font-size:30px;">Dinner</h3>
+                    </div>
+                    <div class="row g-4">
+                        <div class="col-md-6 col-lg-4 text-center">
+                            <img src="Images/pexels-sunsetoned-10026524.jpg" class="img-fluid">
+                            <h4>Magnam Tiste</h4>
+                            <p class="ingredients">Lorem, deren, trataro, filede, nerada</p>
+                            <p class="price text-danger">$5.95</p>
+                        </div>
+                        <div class="col-md-6 col-lg-4 text-center">
+                            <img src="Images/pexels-jane-doan-909908.jpg" class="img-fluid">
+                            <h4>Magnam Tiste</h4>
+                            <p class="ingredients">Lorem, deren, trataro, filede, nerada</p>
+                            <p class="price text-danger">$5.95</p>
+                        </div>
+                        <div class="col-md-6 col-lg-4 text-center">
+                            <img src="Images/pexels-jill-burrow-6858632.jpg" class="img-fluid">
+                            <h4>Magnam Tiste</h4>
+                            <p class="ingredients">Lorem, deren, trataro, filede, nerada</p>
+                            <p class="price text-danger">$5.95</p>
+                        </div>
+                                 
+                        <div class="col-md-6 col-lg-4 text-center">
+                            <img src="Images/pexels-cook-eat-776859.jpg" class="img-fluid">
+                            <h4>Magnam Tiste</h4>
+                            <p class="ingredients">Lorem, deren, trataro, filede, nerada</p>
+                            <p class="price text-danger">$5.95</p>
+                        </div>
+                        <div class="col-md-6 col-lg-4 text-center">
+                            <img src="Images/pexels-кристина-александрова-3750709.jpg" class="img-fluid">
+                            <h4>Magnam Tiste</h4>
+                            <p class="ingredients">Lorem, deren, trataro, filede, nerada</p>
+                            <p class="price text-danger">$5.95</p>
+                        </div>
+                        <div class="col-md-6 col-lg-4 text-center">
+                            <img src="Images/pexels-any-lane-5945565.jpg" class="img-fluid">
+                            <h4>Magnam Tiste</h4>
+                            <p class="ingredients">Lorem, deren, trataro, filede, nerada</p>
+                            <p class="price text-danger">$5.95</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gallery -->
+        <div class="container text-center my-3" id="gallery">
+            <h2 style="font-family: 'sans-serif'; font-size: 13px; color: #7F7F90;" class="text-center">GALLERY</h2>
+            <p class="text-center" style="font-size: 48px; font-family: 'Amatic SC', cursive;">CHECK <span class="text-danger">OUR GALLERY</span></p>
+		<div class="row mx-auto my-auto justify-content-center">
+			<div id="slider" class="carousel slide" data-bs-ride="carousel">
+				<div class="carousel-inner" role="listbox">
+					<div class="carousel-item active">
+						<div class="col-md-3">
+							<div class="card m-1">
+								<div class="card-img">
+									<img src="Images/pexels-ella-olsson-1640772.jpg" class="img-fluid p-2">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="carousel-item">
+						<div class="col-md-3">
+							<div class="card m-1">
+								<div class="card-img">
+									<img src="Images/pexels-jane-doan-1092730.jpg" class="img-fluid p-2">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="carousel-item">
+						<div class="col-md-3">
+							<div class="card m-1">
+								<div class="card-img">
+									<img src="Images/pexels-ella-olsson-1640772.jpg" class="img-fluid p-2">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="carousel-item">
+						<div class="col-md-3">
+							<div class="card m-1">
+								<div class="card-img">
+									<img src="Images/pexels-jane-doan-1092730.jpg" class="img-fluid p-2">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="carousel-item">
+						<div class="col-md-3">
+							<div class="card m-1">
+								<div class="card-img">
+									<img src="Images/pexels-ella-olsson-1640772.jpg" class="img-fluid p-2">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="carousel-item">
+						<div class="col-md-3">
+							<div class="card m-1">
+								<div class="card-img">
+									<img src="Images/pexels-jane-doan-1092730.jpg" class="img-fluid p-2">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<a class="carousel-control-prev bg-transparent w-aut" href="#" role="button" data-bs-slide="prev" data-bs-target="#slider">
+					<span class="carousel-control-prev-icon"></span>
+				</a>
+				<a class="carousel-control-next bg-transparent w-aut" href="#" role="button" data-bs-slide="next" data-bs-target="#slider">
+					<span class="carousel-control-next-icon"></span>
+				</a>
+			</div>
+		</div>		
+	</div>
+
+    <!-- Contact us -->
+    <div class="container-fluid p-5">
+         <h2 style="font-family: 'sans-serif'; font-size: 13px; color: #7F7F90;" class="text-center">CONTACT</h2>
+            <p class="text-center" style="font-size: 48px; font-family: 'Amatic SC', cursive;">NEED HELP?<span class="text-danger"> CONTACT US</span></p>
+            <div class="mb-3">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d59990.835675044436!2d73.69208615820314!3d19.990576100000016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bddec72148ffffb%3A0x2aadafb6c7967179!2sNashik%20City%20Centre%20Mall!5e0!3m2!1sen!2sin!4v1675412891180!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="row gy-4 text d-flex justify-content-between mb-4">
+                <div class="col-lg-5 bg-light">
+                    <h2>Our address</h2>
+                    <p>A108 Adam Street, New York, NY 535022</p>
+                    
+                </div>
+                <div class="col-lg-5 bg-light">
+                    <h2>Email Us</h2>
+                    <p>contact@example.com</p>
+                </div>
+            </div>
+            <div class="row gy-4 text d-flex justify-content-between">
+                <div class="col-lg-5 bg-light">
+                    <h2>Call Us</h2>
+                    <p>+1 5589 55488 55</p>
+                </div>
+                <div class="col-lg-5 bg-light">
+                    <h2>Opening Hours</h2>
+                    <p>Mon-Sat: 11AM - 23PM; Sunday: Closed</p>
+                </div>
+            </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="container-fluid text-bg-dark p-5">
+        <div class="row">
+            <div class="col-lg-3">
+                <i class="fa-light fa-heart"></i>
+                <h4>Address</h4>
+                <p>A108 Adam Street <br/>
+                    New York, NY 535022 - US
+                </p>
+            </div>
+            <div class="col-lg-3">
+                <h4>Reservations</h4>
+                <p>Phone: +1 5589 55488 55 <br/>
+                    Email: info@example.com
+                </p>
+            </div>
+            <div class="col-lg-3">
+                <h4>Opening Hours</h4>
+                <p>Mon-Sat: 11AM - 23PM  <br/>
+                    Sunday: Closed
+                </p>
+            </div>
+            <div class="col-lg-3">
+                <h4>Follow Us</h4>
+                <p>
+                </p>
+            </div>
+        </div>
+    </div>
+        
+    
+</body>
+<script>
+    AOS.init();
+</script>
+
+<script>
+    function visible(partial) {
+    var $t = partial,
+        $w = jQuery(window),
+        viewTop = $w.scrollTop(),
+        viewBottom = viewTop + $w.height(),
+        _top = $t.offset().top,
+        _bottom = _top + $t.height(),
+        compareTop = partial === true ? _bottom : _top,
+        compareBottom = partial === true ? _top : _bottom;
+
+    return ((compareBottom <= viewBottom) && (compareTop >= viewTop) && $t.is(':visible'));
+
+}
+
+$(window).scroll(function(){
+
+  if(visible($('.count-digit')))
+    {
+      if($('.count-digit').hasClass('counter-loaded')) return;
+      $('.count-digit').addClass('counter-loaded');
+      
+$('.count-digit').each(function () {
+  var $this = $(this);
+  jQuery({ Counter: 0 }).animate({ Counter: $this.text() }, {
+    duration: 3000,
+    easing: 'swing',
+    step: function () {
+      $this.text(Math.ceil(this.Counter));
+    }
+  });
+});
+    }
+})
+
+</script>
+
+<script>
+    let items = document.querySelectorAll('.carousel .carousel-item')
+
+		items.forEach((el) => {
+			const minPerSlide = 4
+			let next = el.nextElementSibling
+			for (var i=1; i<minPerSlide; i++) {
+				if (!next) {
+            // wrap carousel by using first child
+            next = items[0]
+        }
+        let cloneChild = next.cloneNode(true)
+        el.appendChild(cloneChild.children[0])
+        next = next.nextElementSibling
+    }
+})
+</script>
+
+<!-- <script>
+    $('.counting').each(function() {
+  var $this = $(this),
+      countTo = $this.attr('data-count');
+  
+  $({ countNum: $this.text()}).animate({
+    countNum: countTo
+  },
+
+  {
+
+    duration: 3000,
+    easing:'linear',
+    step: function() {
+      $this.text(Math.floor(this.countNum));
+    },
+    complete: function() {
+      $this.text(this.countNum);
+      //alert('finished');
+    }
+
+  });  
+  
+
+});
+</script> -->
+</html>
